@@ -1,0 +1,24 @@
+﻿@model SportsStore.Domain.Entities.Product
+
+
+@{
+    ViewBag.Title = "byID";
+}
+
+<h2>byID</h2>
+<div class="item">
+    <h3>@Model.Name</h3>
+    @Model.Description
+    @using (Html.BeginForm("AddToCart", "Cart"))
+    {
+        @Html.HiddenFor(x => x.ProductID)
+        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+        <input type="submit" value="+ Add to cart" />
+    }
+    <h4>@Model.Price.ToString("c")</h4>
+    <h4>@Model.Category</h4>
+</div>>
+
+
+
+
